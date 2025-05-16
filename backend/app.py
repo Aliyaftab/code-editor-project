@@ -7,6 +7,10 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/')
+def home():
+    return 'Code Runner API is live! Use POST /run to execute Python code.'
+
 @app.route('/run', methods=['POST'])
 def run_code():
     code = request.json.get("code")
